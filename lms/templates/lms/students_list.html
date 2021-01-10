@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title> Students </title>
+{% endblock %}
+
+{% block content %}
+
+    <br>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+            {% if students_list %}
+            <table class="table table-light table-striped">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Fullname</th>
+                    <th scope="col">Student Number</th>
+                  </tr>
+                </thead>
+                {% for student in students_list %}
+                <tbody>
+                  <tr>
+                    <th scope="row">{{ student.id }}</th>
+                      <td><a href=# class="text-dark text-decoration-none">{{ student.first_name }} {{ student.last_name}}</a></td>
+                      <td>{{ student.student_number }}</td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            {% endif %}
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+
+{% endblock %}
